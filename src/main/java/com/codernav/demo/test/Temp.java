@@ -1,4 +1,4 @@
-package com.codernav.demo;
+package com.codernav.demo.test;
 
 import java.util.ArrayList;
 import java.util.List;
