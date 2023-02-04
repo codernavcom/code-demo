@@ -9,34 +9,27 @@ package com.codernav.demo.leetcode.array.removeelement;
  */
 public class Q_844 {
     public static void main(String[] args) {
-        f("#ab#c#d", "ad#c");
+        f("ab#c#d", "ad#c");
     }
 
     private static boolean f(String s, String t) {
+        s = getFormatText(s);
+        t = getFormatText(t);
+        return s.equals(t);
+    }
 
+    public static String getFormatText(String text) {
         // 如果字符串中包含#，对字符串进行处理
-        while (s.contains("#")) {
-            int pos = s.indexOf("#"); // #出现的位置，该方法只返回#出现的第一个位置
-            StringBuilder sb = new StringBuilder(s);
+        while (text.contains("#")) {
+            int pos = text.indexOf("#"); // #出现的位置，该方法只返回#出现的第一个位置
+            StringBuilder sb = new StringBuilder(text);
             if (sb.indexOf("#") == 0) { // #在第一位单独处理，防止异常
                 sb.deleteCharAt(0);
             } else {
                 sb.delete(pos - 1, pos + 1); // #不在第一位，移除#和它的前一位置
             }
-            s = sb.toString(); // 重新给字符串赋值
+            text = sb.toString(); // 重新给字符串赋值
         }
-
-        while (t.contains("#")) {
-            int pos = t.indexOf("#");
-            StringBuilder sb = new StringBuilder(t);
-            if (sb.indexOf("#") == 0) {
-                sb.deleteCharAt(0);
-            } else {
-                sb.delete(pos - 1, pos + 1);
-            }
-            t = sb.toString();
-        }
-
-        return s.equals(t);
+        return text.toString();
     }
 }
