@@ -10,9 +10,22 @@ import java.util.Arrays;
  */
 public class Q_977_1 {
     public static void main(String[] args) {
-        int[] result = f(new int[]{-4, -1, 0, 3, 10});
-        // 0,1,9,16,100
-        System.out.println(Arrays.toString(result));
+        // 定义示例
+        int[] nums = new int[]{-4, -1, 0, 3, 10};
+
+        // 返回：0,1,9,16,100
+        System.out.println(Arrays.toString(f(nums)));
+        System.out.println(Arrays.toString(f1(nums)));
+    }
+
+    // 使用java提供的API
+    private static int[] f1(int[] nums) {
+        int[] newNums = new int[nums.length];
+        for (int i = 0; i < nums.length; i++) {
+            newNums[i] = nums[i] * nums[i];
+        }
+        Arrays.sort(newNums);
+        return newNums;
     }
 
     private static int[] f(int[] nums) {
