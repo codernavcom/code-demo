@@ -3,8 +3,8 @@ package com.codernav.demo.test;
 public class Temp {
     public static void main(String[] args) {
         int[] nums = new int[]{2, 3, 1, 2, 4, 3};
-        int num = f1(nums, 7);
-        System.out.println(num);
+        System.out.println(f(nums, 7));
+        System.out.println(f1(nums, 7));
 
     }
 

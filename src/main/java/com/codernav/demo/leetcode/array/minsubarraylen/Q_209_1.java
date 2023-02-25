@@ -23,6 +23,7 @@ public class Q_209_1 {
         for (int right = 0; right < nums.length; right++) {
             sum += nums[right];
             while (sum >= target) {
+                // 最小滑窗是在迭代右移左边界的过程中更新结果
                 minLength = Math.min(minLength, right - left + 1);
                 sum = sum - nums[left];
                 left++;
@@ -56,7 +57,7 @@ public class Q_209_1 {
             sum = sum + nums[right];
             // 满足条件
             while (sum >= target) {
-                // 更新最优结果
+                // 更新最优结果 注意：最小滑窗是在左指针右移的过程中更新结果
                 minLength = Math.min(minLength, right - left + 1);
                 // 移除left对应元素
                 sum = sum - nums[left];
