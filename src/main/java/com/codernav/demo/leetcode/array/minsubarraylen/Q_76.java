@@ -8,4 +8,26 @@ package com.codernav.demo.leetcode.array.minsubarraylen;
  * 如果 s 中存在这样的子串，我们保证它是唯一的答案。
  */
 public class Q_76 {
+    public static void main(String[] args) {
+        String subResult = f("ADOBECODEBANC", "ABC");
+        System.out.println(subResult);
+    }
+
+    private static String f(String s, String t) {
+        int left = 0;
+        int right = 0;
+        int minLength = Integer.MAX_VALUE;
+
+
+        return null;
+    }
+
+    private static boolean contains(String text, String subText) {
+        for (char c : subText.toCharArray()) {
+            if (!text.contains(String.valueOf(c))) {
+                return false;
+            }
+        }
+        return true;
+    }
 }

@@ -28,6 +28,6 @@ public class Q_27 {
                 slow++;
             }
         }
-        return slow-1;
+        return slow;
     }
 }
