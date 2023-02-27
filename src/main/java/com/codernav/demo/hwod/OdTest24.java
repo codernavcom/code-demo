@@ -12,8 +12,23 @@ import java.util.Arrays;
  */
 public class OdTest24 {
     public static void main(String[] args) {
+        // 自己写二分查找
         int[] result = f(new int[]{1, 2, 3, 4, 5, 6}, 10);
         System.out.println(Arrays.toString(result));
+        // 使用Java二分查找API
+        int[] result1 = f1(new int[]{1, 2, 3, 4, 5, 6}, 10);
+        System.out.println(Arrays.toString(result1));
+    }
+
+    private static int[] f1(int[] nums, int target) {
+        for (int i = 0; i < nums.length; i++) {
+            // 如果key在数组中，则返回搜索值的索引；否则返回-1或“-”（插入点）
+            int j = Arrays.binarySearch(nums, target - nums[i]);
+            if (j > 0) {
+                return new int[]{i, j};
+            }
+        }
+        return new int[0];
     }
 
     private static int[] f(int[] nums, int target) {
