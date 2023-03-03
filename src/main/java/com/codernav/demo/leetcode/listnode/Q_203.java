@@ -20,23 +20,26 @@ public class Q_203 {
         ListNode node3 = new ListNode(6, node4);
         ListNode node2 = new ListNode(2, node3);
         ListNode node1 = new ListNode(1, node2);
+        // 不加虚拟结点
         ListNode newHead = f(node1, 6);
+        // 虚拟结点
         ListNode newHead1 = f1(node1, 6);
-
+        // 递归
+        ListNode newHead2 = f2(node1, 6);
     }
 
     private static ListNode f1(ListNode head, int val) {
-        if (head == null) {
-            return head;
+        ListNode dummyNode = new ListNode(val - 1); // 虚拟结点
+        dummyNode.next = head;
+        ListNode prev = dummyNode;
+        while (prev.next != null) {
+            if (prev.next.val == val) {
+                prev.next = prev.next.next;
+            } else {
+                prev = prev.next;
+            }
         }
-        // 递归
-        head.next = f1(head.next, val);
-        if (head.val == val) {
-            return head.next;
-        } else {
-            return head;
-        }
-
+        return dummyNode.next;
     }
 
     private static ListNode f(ListNode head, int val) {
@@ -57,4 +60,20 @@ public class Q_203 {
         }
         return head;
     }
+
+    private static ListNode f2(ListNode head, int val) {
+        if (head == null) {
+            return head;
+        }
+        // 递归
+        head.next = f2(head.next, val);
+        if (head.val == val) {
+            return head.next;
+        } else {
+            return head;
+        }
+
+    }
+
+
 }
