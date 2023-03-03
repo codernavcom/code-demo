@@ -8,21 +8,8 @@ package com.codernav.demo.hwod;
  */
 public class OdTest01 {
     public static void main(String[] args) {
-        // 递归法
-        System.out.println(f(10));
         // 动态规划法
         System.out.println(f1(10));
-    }
-
-    /**
-     * 递归法
-     * 跳第n个台阶，只能从第n-1个台阶和第n-2个台阶跳，所以f(n)=f(n-1)+f(n-2)
-     */
-    private static int f(int n) {
-        if (n <= 2) {
-            return n;
-        }
-        return f(n - 1) + f(n - 2);
     }
 
     /**

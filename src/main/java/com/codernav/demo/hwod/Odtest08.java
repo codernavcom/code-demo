@@ -16,20 +16,14 @@ public class Odtest08 {
         if (arr.length < 1) {
             return 0;
         }
-        // i慢指针，j快指针
-        int i = 0;
-        // 第一次遍历：i=0,j=1 -> 0,1,2,2,3,3,4 i=1
-        // 第二次遍历：i=1,j=2 -> 0,1,2,2,3,3,4 i=2
-        // 第三次遍历：i=2,j=3 -> 0,1,2,2,3,3,4 i=2
-        // 第四次遍历：i=2,j=4 -> 0,1,2,3,3,3,4 i=3
-        // 第五次遍历：i=3,j=5 -> 0,1,2,3,3,3,4 i=3
-        // 第六次遍历：i=3,j=6 -> 0,1,2,3,4,3,4 i=4
-        for (int j = 1; j < arr.length; j++) {
-            if (arr[i] != arr[j]) {
-                i++;
-                arr[i] = arr[j];
+
+        int slow = 0;
+        for (int fast = 1; fast < arr.length; fast++) {
+            if (arr[slow] != arr[fast]) {
+                slow++;
+                arr[slow] = arr[fast];
             }
         }
-        return i + 1;
+        return slow + 1;
     }
 }

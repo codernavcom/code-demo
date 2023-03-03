@@ -9,8 +9,6 @@ package com.codernav.demo.hwod;
  */
 public class OdTest02 {
     public static void main(String[] args) {
-        // 一个机器人位于一个 m x n 网格的左上角（起始点在下图中标记为“Start” ） 机器人每次只能向下或者向右移动一步。机器人试图达到网格的右下角（在下图中标记为“Finish”）。
-        // dp[m][n] = dp[m-1][n] + dp[m][n-1]
         System.out.println(f(7, 4));
         System.out.println(f1(7, 4));
     }
