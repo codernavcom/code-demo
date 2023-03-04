@@ -17,8 +17,22 @@ public class Q_24 {
         ListNode node3 = new ListNode(3, node4);
         ListNode node2 = new ListNode(2, node3);
         ListNode node1 = new ListNode(1, node2);
-
+        ListNode node = swapPairs(node1);
+        System.out.println(node);
     }
 
+    public static ListNode swapPairs(ListNode head) {
+        //终止条件：链表只剩一个节点或者没节点了，没得交换了。返回的是已经处理好的链表
+        if(head == null || head.next == null){
+            return head;
+        }
+        //一共三个节点:head, next, swapPairs(next.next)
+        //下面的任务便是交换这3个节点中的前两个节点
+        ListNode next = head.next;
+        head.next = swapPairs(next.next);
+        next.next = head;
+        //根据第二步：返回给上一级的是当前已经完成交换后，即处理好了的链表部分
+        return next;
+    }
 
 }

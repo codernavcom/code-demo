@@ -2,12 +2,10 @@ package com.codernav.demo.stream;
 
 import com.codernav.demo.common.Person;
 
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class StreamHandler {
     public static void main(String[] args) {
@@ -43,9 +41,24 @@ public class StreamHandler {
         List<Person> collect3 = persons.stream().sorted(Comparator.comparing(Person::getAge).reversed()).collect(Collectors.toList());
         System.out.println(collect3);
 
+        // 最大值
+        String max = persons.stream().map(Person::getBirthday).max(String::compareTo).get();
+        System.out.println(max);
         // 最小值
-        String s = persons.stream().map(Person::getBirthday).min(String::compareTo).get();
-        System.out.println(s);
+        String min = persons.stream().map(Person::getBirthday).min(String::compareTo).get();
+        System.out.println(min);
+
+        // 求和
+        int ageSum = persons.stream().mapToInt(Person::getAge).sum();
+        // 求平均值
+        double ageAverage = persons.stream().mapToInt(Person::getAge).average().getAsDouble();
+        System.out.println(ageAverage);
+
+        List<Person> collect4 = persons.stream().skip(1).collect(Collectors.toList());
+        System.out.println(collect4);
+
+        List<Person> collect5 = persons.stream().limit(1).collect(Collectors.toList());
+        System.out.println(collect5);
 
     }
 }
