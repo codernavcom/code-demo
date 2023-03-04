@@ -1,4 +1,4 @@
-package com.codernav.demo.leetcode.listnode.designlinkedlist;
+package com.codernav.demo.leetcode.linkedlist.designlinkedlist;
 
 import com.codernav.demo.common.ListNode;
 

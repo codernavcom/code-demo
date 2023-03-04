@@ -1,4 +1,4 @@
-package com.codernav.demo.leetcode.listnode.reverseList;
+package com.codernav.demo.leetcode.linkedlist.reverseList;
 
 import com.codernav.demo.common.ListNode;
 
