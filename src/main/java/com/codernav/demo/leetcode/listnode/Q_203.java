@@ -50,6 +50,7 @@ public class Q_203 {
         if (head == null) {
             return head;
         }
+        // 不能直接操作头结点，因为我们要返回头结点，可以定义一个指针
         ListNode prev = head;
         while (prev.next != null) {
             if (prev.next.val == val) {
