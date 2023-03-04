@@ -31,6 +31,7 @@ public class Q_203 {
     private static ListNode f1(ListNode head, int val) {
         ListNode dummyNode = new ListNode(val - 1); // 虚拟结点
         dummyNode.next = head;
+        // 要定义一个指针，不能直接操作头结点
         ListNode prev = dummyNode;
         while (prev.next != null) {
             if (prev.next.val == val) {
