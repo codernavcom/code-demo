@@ -29,7 +29,7 @@ public class Q_206 {
             return head;
         }
         // 递归的目的是找到最后一个元素，从后往前执行下面的算法，如果从前往后执行，会导致执行一次算法后，链接断开
-        ListNode newHead = f(head.next);
+        ListNode newHead = f1(head.next);
         // 将后一个节点的next节点指向head
         head.next.next = head;
         // 将后一个节点指向null

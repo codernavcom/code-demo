@@ -1,4 +1,4 @@
-package com.codernav.demo.leetcode.listnode;
+package com.codernav.demo.leetcode.listnode.removelinkedlistelements;
 
 import com.codernav.demo.common.ListNode;
 
