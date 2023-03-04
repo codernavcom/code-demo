@@ -2,6 +2,8 @@ package com.codernav.demo.leetcode.linkedlist.reverseList;
 
 import com.codernav.demo.common.ListNode;
 
+import java.util.Stack;
+
 /**
  * @title 206. 反转链表
  * @Description 给你单链表的头节点 head ，请你反转链表，并返回反转后的链表。
@@ -22,6 +24,8 @@ public class Q_206 {
         System.out.println(f(node1));
         // 递归
         System.out.println(f1(node1));
+        // 使用栈
+        System.out.println(f2(node1));
     }
 
     public static ListNode f1(ListNode head) {
@@ -56,5 +60,34 @@ public class Q_206 {
             curr = next;
         }
         return prev;
+    }
+
+    public static ListNode f2(ListNode head) {
+        // 如果链表为空，则返回空
+        if (head == null) {
+            return null;
+        }
+        // 如果链表中只有一个元素，则直接返回
+        if (head.next == null) {
+            return head;
+        }
+        // 创建栈 每一个结点都入栈
+        Stack<ListNode> stack = new Stack<>();
+        // 不能直接操作头结点，会导致头结点变化
+        ListNode cur = head;
+        while (cur != null) {
+            stack.push(cur);
+            cur = cur.next;
+        }
+        // 创建一个虚拟头结点
+        ListNode dummyNode = new ListNode(-1);
+        ListNode prev = dummyNode;
+        while (!stack.isEmpty()) {
+            prev.next = stack.pop();
+            prev = prev.next;
+        }
+        // 最后一个元素的next要赋值为空
+        prev.next = null;
+        return dummyNode.next;
     }
 }
