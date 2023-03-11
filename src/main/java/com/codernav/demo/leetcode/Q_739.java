@@ -4,14 +4,23 @@ import java.util.Arrays;
 import java.util.Deque;
 import java.util.LinkedList;
 
+/**
+ * @title 739. 每日温度
+ * @Description 给定一个整数数组temperatures，表示每天的温度，返回一个数组answer，
+ * 其中answer[i]是指对于第 i 天，下一个更高温度出现在几天后。如果气温在这之后都不会升高，请在该位置用0 来代替。
+ * @Author 开发者导航
+ * @website https://www.codernav.com
+ * @date 2023/3/4
+ */
 public class Q_739 {
     public static void main(String[] args) {
-        int[] nums = f(new int[]{73, 74, 75, 71, 69, 72, 76, 73});
-        int[] nums1 = dailyTemperatures(new int[]{73, 74, 75, 71, 69, 72, 76, 73});
-        int[] nums2 = dailyTemperatures2(new int[]{73, 74, 75, 71, 69, 72, 76, 73});
-        System.out.println(Arrays.toString(nums));
-        System.out.println(Arrays.toString(nums1));
-        System.out.println(Arrays.toString(nums2));
+        int[] nums = new int[]{73, 74, 75, 71, 69, 72, 76, 73};
+        // 暴力算法
+        System.out.println(Arrays.toString(f(nums)));
+        // 单调栈
+        System.out.println(Arrays.toString(dailyTemperatures(nums)));
+        // 单调栈
+        System.out.println(Arrays.toString(dailyTemperatures2(nums)));
     }
 
     // 暴力算法
