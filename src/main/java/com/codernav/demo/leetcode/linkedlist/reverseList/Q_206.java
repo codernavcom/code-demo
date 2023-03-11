@@ -28,19 +28,6 @@ public class Q_206 {
         System.out.println(f2(node1));
     }
 
-    public static ListNode f1(ListNode head) {
-        if (head == null || head.next == null) {
-            return head;
-        }
-        // 递归的目的是找到最后一个元素，从后往前执行下面的算法，如果从前往后执行，会导致执行一次算法后，链接断开
-        ListNode newHead = f1(head.next);
-        // 将后一个节点的next节点指向head
-        head.next.next = head;
-        // 将后一个节点指向null
-        head.next = null;
-        return newHead;
-    }
-
     public static ListNode f(ListNode head) {
         // 后一个节点
         ListNode next;
@@ -60,6 +47,19 @@ public class Q_206 {
             curr = next;
         }
         return prev;
+    }
+
+    public static ListNode f1(ListNode head) {
+        if (head == null || head.next == null) {
+            return head;
+        }
+        // 递归的目的是找到最后一个元素，从后往前执行下面的算法，如果从前往后执行，会导致执行一次算法后，链接断开
+        ListNode newHead = f1(head.next);
+        // 将后一个节点的next节点指向head
+        head.next.next = head;
+        // 将后一个节点指向null
+        head.next = null;
+        return newHead;
     }
 
     public static ListNode f2(ListNode head) {

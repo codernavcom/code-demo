@@ -52,12 +52,10 @@ public class Q_0207 {
         int diff = sizeA > sizeB ? sizeA - sizeB : sizeB - sizeA;
 
         // 让两个链表的指针在同一起点上（末尾位置对齐，就是让长的链表指针先跑diff个长度）
-        if (sizeA > sizeB) {
-            for (int i = 0; i < diff; i++) {
+        for (int i = 0; i < diff; i++) {
+            if (sizeA > sizeB) {
                 dummyNodeA = dummyNodeA.next;
-            }
-        } else {
-            for (int i = 0; i < diff; i++) {
+            } else {
                 dummyNodeB = dummyNodeB.next;
             }
         }
