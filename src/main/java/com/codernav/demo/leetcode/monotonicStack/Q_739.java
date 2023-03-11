@@ -1,4 +1,4 @@
-package com.codernav.demo.leetcode.stack;
+package com.codernav.demo.leetcode.monotonicStack;
 
 import java.util.Arrays;
 import java.util.Deque;
